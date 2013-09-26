@@ -22,25 +22,38 @@ namespace СurrencyConverter
             InitializeComponent();
         }
 
+        static CurrencyRatesData currencyRatesData = new CurrencyRatesData();
 
-        // Парсинг xml документа, сохранение данных в List<CurrencyRates> currencyRates,
-        // инициализация элементов формы.
         private void MainForm_Load(object sender, EventArgs e)
         {
-            CurrencyRates.LoadXmlFile();
-            foreach (CurrencyRates cr in CurrencyRatesData.currencyRates)
+            try
+            {
+                currencyRatesData.LoadXmlFile();
+            }
+            catch (System.Net.WebException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Environment.Exit(0);
+            }
+            catch (System.Xml.XmlException)
+            {
+                MessageBox.Show("Server error, please try again later.");
+                Environment.Exit(0);
+            }
+
+            foreach (CurrencyRates cr in CurrencyRatesData.CurrencyRates)
             {
                 fromDate.Items.Add(cr.Date);
                 toDate.Items.Add(cr.Date);
                 convertDate.Items.Add(cr.Date);
             }
 
-            fromDate.SelectedIndex = CurrencyRatesData.currencyRates.Count - 1;
+            fromDate.SelectedIndex = CurrencyRatesData.CurrencyRates.Count - 1;
             toDate.SelectedIndex = 0;
             convertDate.SelectedIndex = 0;
             currency.Items.Add("All");
             currency.SelectedIndex = 0;
-            foreach (KeyValuePair<string, double> pair in CurrencyRatesData.currencyRates[0].Currency)
+            foreach (KeyValuePair<string, double> pair in CurrencyRatesData.CurrencyRates[0].Currency)
             {
                 currency.Items.Add(pair.Key);
                 currencyA.Items.Add(pair.Key);
@@ -111,7 +124,7 @@ namespace СurrencyConverter
                 return;
             }
 
-            result = CurrencyRates.ConvertCurrency(temp, convertDate.SelectedIndex, currencyA.Text, currencyB.Text);
+            result = currencyRatesData.ConvertCurrency(temp, convertDate.SelectedIndex, currencyA.Text, currencyB.Text);
             countB.Text = result.ToString(CurrencyRatesData.Culture);
        }
 
@@ -123,7 +136,7 @@ namespace СurrencyConverter
             {
                 try
                 {
-                    CurrencyRates.WriteInFile(saveFileDialog.FileName, toDate.SelectedIndex, fromDate.SelectedIndex, currency.Text);
+                    currencyRatesData.WriteInFile(saveFileDialog.FileName, toDate.SelectedIndex, fromDate.SelectedIndex, currency.Text);
                 }
                 catch (IOException ex)
                 {

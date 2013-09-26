@@ -30,21 +30,21 @@ namespace СurrencyConverter
             for (int i = indexToDate; i <= indexFromDate; i++)
             {
                 DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn();
-                column.Name = CurrencyRatesData.currencyRates[i].Date.ToString("dd.MM.yyyy");
+                column.Name = CurrencyRatesData.CurrencyRates[i].Date.ToString("dd.MM.yyyy");
                 dataRates.Columns.Add(column);
             }
             
             if (keyCurrency == "All")
             {
-                dataRates.Rows.Add(CurrencyRatesData.currencyRates[0].Currency.Count);
+                dataRates.Rows.Add(CurrencyRatesData.CurrencyRates[0].Currency.Count);
                 int x = 0, y = 0;
-                foreach (KeyValuePair<string, double> pair in CurrencyRatesData.currencyRates[0].Currency)
+                foreach (KeyValuePair<string, double> pair in CurrencyRatesData.CurrencyRates[0].Currency)
                 {
                     y = 1;
                     dataRates.Rows[x].Cells[0].Value = pair.Key;
                     for (int i = indexToDate; i <= indexFromDate; i++)
                     {
-                        dataRates.Rows[x].Cells[y].Value = CurrencyRatesData.currencyRates[i].Currency[pair.Key];
+                        dataRates.Rows[x].Cells[y].Value = CurrencyRatesData.CurrencyRates[i].Currency[pair.Key];
                         //dataRates.Rows[x].Cells[y].Value = pair.Value;
                         y++;
                     }
@@ -58,7 +58,7 @@ namespace СurrencyConverter
                 int y = 1;
                 for (int i = indexToDate; i <= indexFromDate; i++)
                 {
-                    dataRates[y, 0].Value = CurrencyRatesData.currencyRates[i].Currency[keyCurrency];
+                    dataRates[y, 0].Value = CurrencyRatesData.CurrencyRates[i].Currency[keyCurrency];
                     y++;
                 }
             }

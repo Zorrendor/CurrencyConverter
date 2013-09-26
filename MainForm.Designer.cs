@@ -38,6 +38,8 @@
             this.showRates = new System.Windows.Forms.Button();
             this.toDate = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.inputFormat = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.convertDate = new System.Windows.Forms.ComboBox();
             this.convertTo = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.currencyA = new System.Windows.Forms.ComboBox();
             this.countB = new System.Windows.Forms.TextBox();
             this.countA = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.inputFormat = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             this.fromDate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fromDate.FormattingEnabled = true;
             this.fromDate.Location = new System.Drawing.Point(84, 63);
-            this.fromDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fromDate.Margin = new System.Windows.Forms.Padding(4);
             this.fromDate.Name = "fromDate";
             this.fromDate.Size = new System.Drawing.Size(104, 24);
             this.fromDate.TabIndex = 0;
@@ -74,10 +74,10 @@
             this.panel1.Controls.Add(this.showRates);
             this.panel1.Controls.Add(this.toDate);
             this.panel1.Controls.Add(this.fromDate);
-            this.panel1.Location = new System.Drawing.Point(31, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(19, 28);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 329);
+            this.panel1.Size = new System.Drawing.Size(401, 379);
             this.panel1.TabIndex = 1;
             // 
             // label5
@@ -95,7 +95,7 @@
             this.currency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.currency.FormattingEnabled = true;
             this.currency.Location = new System.Drawing.Point(183, 108);
-            this.currency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currency.Margin = new System.Windows.Forms.Padding(4);
             this.currency.Name = "currency";
             this.currency.Size = new System.Drawing.Size(79, 24);
             this.currency.TabIndex = 5;
@@ -123,7 +123,7 @@
             // export
             // 
             this.export.Location = new System.Drawing.Point(31, 257);
-            this.export.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.export.Margin = new System.Windows.Forms.Padding(4);
             this.export.Name = "export";
             this.export.Size = new System.Drawing.Size(339, 52);
             this.export.TabIndex = 3;
@@ -134,7 +134,7 @@
             // showRates
             // 
             this.showRates.Location = new System.Drawing.Point(31, 175);
-            this.showRates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showRates.Margin = new System.Windows.Forms.Padding(4);
             this.showRates.Name = "showRates";
             this.showRates.Size = new System.Drawing.Size(340, 50);
             this.showRates.TabIndex = 2;
@@ -147,7 +147,7 @@
             this.toDate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toDate.FormattingEnabled = true;
             this.toDate.Location = new System.Drawing.Point(267, 63);
-            this.toDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toDate.Margin = new System.Windows.Forms.Padding(4);
             this.toDate.Name = "toDate";
             this.toDate.Size = new System.Drawing.Size(103, 24);
             this.toDate.TabIndex = 1;
@@ -166,26 +166,49 @@
             this.panel2.Controls.Add(this.currencyA);
             this.panel2.Controls.Add(this.countB);
             this.panel2.Controls.Add(this.countA);
-            this.panel2.Location = new System.Drawing.Point(31, 352);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(19, 415);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(397, 289);
+            this.panel2.Size = new System.Drawing.Size(397, 354);
             this.panel2.TabIndex = 2;
+            // 
+            // inputFormat
+            // 
+            this.inputFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.inputFormat.FormattingEnabled = true;
+            this.inputFormat.Items.AddRange(new object[] {
+            "100.00",
+            "100,00"});
+            this.inputFormat.Location = new System.Drawing.Point(183, 126);
+            this.inputFormat.Margin = new System.Windows.Forms.Padding(4);
+            this.inputFormat.Name = "inputFormat";
+            this.inputFormat.Size = new System.Drawing.Size(143, 24);
+            this.inputFormat.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(56, 129);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 17);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "The input format";
             // 
             // convertDate
             // 
             this.convertDate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.convertDate.FormattingEnabled = true;
-            this.convertDate.Location = new System.Drawing.Point(180, 32);
-            this.convertDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.convertDate.Location = new System.Drawing.Point(183, 88);
+            this.convertDate.Margin = new System.Windows.Forms.Padding(4);
             this.convertDate.Name = "convertDate";
             this.convertDate.Size = new System.Drawing.Size(143, 24);
             this.convertDate.TabIndex = 7;
             // 
             // convertTo
             // 
-            this.convertTo.Location = new System.Drawing.Point(125, 158);
-            this.convertTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.convertTo.Location = new System.Drawing.Point(128, 214);
+            this.convertTo.Margin = new System.Windows.Forms.Padding(4);
             this.convertTo.Name = "convertTo";
             this.convertTo.Size = new System.Drawing.Size(137, 30);
             this.convertTo.TabIndex = 6;
@@ -196,7 +219,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 36);
+            this.label3.Location = new System.Drawing.Point(80, 92);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 17);
@@ -206,7 +229,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 0);
+            this.label2.Location = new System.Drawing.Point(146, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 17);
@@ -217,8 +240,8 @@
             // 
             this.currencyB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.currencyB.FormattingEnabled = true;
-            this.currencyB.Location = new System.Drawing.Point(244, 200);
-            this.currencyB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currencyB.Location = new System.Drawing.Point(247, 256);
+            this.currencyB.Margin = new System.Windows.Forms.Padding(4);
             this.currencyB.Name = "currencyB";
             this.currencyB.Size = new System.Drawing.Size(79, 24);
             this.currencyB.TabIndex = 3;
@@ -227,8 +250,8 @@
             // 
             this.currencyA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.currencyA.FormattingEnabled = true;
-            this.currencyA.Location = new System.Drawing.Point(244, 125);
-            this.currencyA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currencyA.Location = new System.Drawing.Point(247, 181);
+            this.currencyA.Margin = new System.Windows.Forms.Padding(4);
             this.currencyA.Name = "currencyA";
             this.currencyA.Size = new System.Drawing.Size(79, 24);
             this.currencyA.TabIndex = 2;
@@ -236,8 +259,8 @@
             // countB
             // 
             this.countB.BackColor = System.Drawing.SystemColors.Window;
-            this.countB.Location = new System.Drawing.Point(33, 201);
-            this.countB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.countB.Location = new System.Drawing.Point(36, 257);
+            this.countB.Margin = new System.Windows.Forms.Padding(4);
             this.countB.Name = "countB";
             this.countB.ReadOnly = true;
             this.countB.Size = new System.Drawing.Size(163, 22);
@@ -245,44 +268,21 @@
             // 
             // countA
             // 
-            this.countA.Location = new System.Drawing.Point(33, 125);
-            this.countA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.countA.Location = new System.Drawing.Point(36, 181);
+            this.countA.Margin = new System.Windows.Forms.Padding(4);
             this.countA.Name = "countA";
             this.countA.Size = new System.Drawing.Size(163, 22);
             this.countA.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(53, 73);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 17);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "The input format";
-            // 
-            // inputFormat
-            // 
-            this.inputFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.inputFormat.FormattingEnabled = true;
-            this.inputFormat.Items.AddRange(new object[] {
-            "100.00",
-            "100,00"});
-            this.inputFormat.Location = new System.Drawing.Point(180, 70);
-            this.inputFormat.Margin = new System.Windows.Forms.Padding(4);
-            this.inputFormat.Name = "inputFormat";
-            this.inputFormat.Size = new System.Drawing.Size(143, 24);
-            this.inputFormat.TabIndex = 9;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(476, 668);
+            this.ClientSize = new System.Drawing.Size(452, 795);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Currency converter";
             this.Load += new System.EventHandler(this.MainForm_Load);
